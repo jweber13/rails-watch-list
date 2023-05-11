@@ -1,0 +1,11 @@
+<h1>Movie Lists</h1>
+<div class="container">
+  <%= link_to "Add A List", new_list_path, class: 'btn btn-light mt-2'  %>
+  <% @lists.each do |list| %>
+    <ul>
+      <li>
+        <h5><%= link_to list.name, list_path(list), class: 'text-secondary text-decoration-none'%></h5>
+      </li>
+    </ul>
+  <%end%>
+</div>

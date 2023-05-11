@@ -1,0 +1,14 @@
+<h1>List</h1>
+<%@list.bookmarks.each do |b|%>
+  <ul>
+    <li>
+      <h3><%=b.movie.title%></h3>
+      <h5><i><%=b.movie.overview%></i></h3>
+      <h5><%='*' * b.movie.rating%></h5>
+      <h5><b>Comment:</b> <%=b.comment%>
+      </li>
+    </ul>
+  <%end%>
+  <%@list.bookmarks%>
+  <%= link_to 'Create a Bookmark', new_list_bookmark_path(@list), class: 'btn btn-success mt-2'%>
+  <%= link_to 'Lists', lists_path, class: 'btn btn-light mt-2'%>
