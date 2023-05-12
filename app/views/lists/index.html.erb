@@ -5,7 +5,7 @@
 <div class="container">
   <% @lists.each do |list| %>
     <div class="list-card">
-      <p></p>
+      <img src=<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>>
       <h5><%= link_to list.name, list_path(list), class: 'text-secondary text-decoration-none'%></h5>
       <%= link_to list_path(list), data: { turbo_method: :delete, turbo_confirm: "delete #{list.name}?" } do %>
         <span class="fa fa-trash"></span>
@@ -13,4 +13,3 @@
     </div>
   <%end%>
 </div>
-<%# cl_image_path(movie.photo.key) %>
