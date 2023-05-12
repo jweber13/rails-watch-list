@@ -14,8 +14,10 @@
         <p><%bookmark.movie.rating.times do%>
             <%='✩'%>
           <%end%></p>
-        <p><%= link_to 'X', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "delete #{bookmark.movie.title} from #{@list.name}?" }, class: 'card-remove-link'%></p>
         <h4><%=bookmark.comment%></h4>
+        <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "delete #{bookmark.movie.title}?" } do %>
+          <span class="fa fa-trash"></span>
+        <% end %>
       </div>
     </div>
   <%end%>
