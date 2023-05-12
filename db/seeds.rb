@@ -14,14 +14,14 @@ Bookmark.destroy_all
 puts "Creating Lists"
 5.times do
   List.create!(
-    name: Faker::IndustrySegments.sub_sector
+    name: "#{Faker::Book.genre} #{Faker::Lorem.word.capitalize}"
   )
 end
 
 puts "Creating Movies"
 15.times do |i|
   Movie.create!(
-    title: Faker::Movie.title, # + "#{i}",
+    title: Faker::Movie.title,
     overview: Faker::Movie.quote,
     rating: rand(1..6),
     poster_url: "http://source.unsplash.com/featured/?cinema>&#{rand(100)}"
@@ -40,9 +40,3 @@ l_list.each_with_index do |li, idx|
     )
   end
 end
-
-# Bookmark.create!(
-#   comment: "This is a comment",
-#   movie: Movie.first,
-#   list: List.first
-# )

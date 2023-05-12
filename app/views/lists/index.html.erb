@@ -1,11 +1,15 @@
-<h1>Movie Lists</h1>
-<div class="container">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1596972812018-6385b8bd3e13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2946&q=80);">
+  <h1>Movie Lists</h1>
   <%= link_to "Add A List", new_list_path, class: 'btn btn-light mt-2'  %>
+</div>
+<div class="container">
   <% @lists.each do |list| %>
-    <ul>
-      <li>
-        <h5><%= link_to list.name, list_path(list), class: 'text-secondary text-decoration-none'%></h5>
-      </li>
-    </ul>
+    <div class="list-card">
+      <p></p>
+      <h5><%= link_to list.name, list_path(list), class: 'text-secondary text-decoration-none'%></h5>
+      <%= link_to list_path(list), data: { turbo_method: :delete, turbo_confirm: "delete #{list.name}?" } do %>
+        <span class="fa fa-trash"></span>
+      <% end %>
+    </div>
   <%end%>
 </div>
