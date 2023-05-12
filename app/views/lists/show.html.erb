@@ -10,15 +10,18 @@
       <img src="<%= bookmark.movie.poster_url %>" alt="movie_poster">
       <div class="card-hello-info">
         <h2><%=bookmark.movie.title%></h2>
-        <p><i><%=bookmark.movie.overview%><i></p>
-            <p><%= link_to 'X', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "delete #{bookmark.movie.title} from #{@list.name}?" }, class: 'card-remove-link'%></p>
-            <h4><%=bookmark.comment%></h4>
-          </div>
-        </div>
-      <%end%>
+        <p><i><%=bookmark.movie.overview%></i></p>
+        <p><%bookmark.movie.rating.times do%>
+            <%='✩'%>
+          <%end%></p>
+        <p><%= link_to 'X', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "delete #{bookmark.movie.title} from #{@list.name}?" }, class: 'card-remove-link'%></p>
+        <h4><%=bookmark.comment%></h4>
+      </div>
     </div>
-    <div class="bottom-footer">
-      <%= link_to 'Go To Lists', lists_path, class: 'btn btn-outline-dark btn-lg mt-5'%>
-    </div>
-    <%# if movie.photo.attached? %>
-    <%# movie.photo.attached ? cl_image_path(movie.photo.key) : movie.poster_url %>
+  <%end%>
+</div>
+<div class="bottom-footer">
+  <%= link_to 'Go To Lists', lists_path, class: 'btn btn-outline-dark btn-lg mt-5'%>
+</div>
+<%# if movie.photo.attached? %>
+<%# movie.photo.attached ? cl_image_path(movie.photo.key) : movie.poster_url %>
