@@ -4,21 +4,21 @@
     <%= link_to 'Create a Bookmark', new_list_bookmark_path(@list), class: 'btn btn-light mt-5'%>
   </div>
 </div>
-<div class="container mt-3">
-  <div class="cards">
-    <%@list.bookmarks.each do |bookmark|%>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= bookmark.movie.poster_url %>)">
+<div class="content-container">
+  <%@list.bookmarks.each do |bookmark|%>
+    <div class="card-hello">
+      <img src="<%= bookmark.movie.poster_url %>" alt="movie_poster">
+      <div class="card-hello-info">
         <h2><%=bookmark.movie.title%></h2>
-        <p><%bookmark.movie.rating.times do %><%='⭐️'%><%end%></p>
-        <div>
-          <h5><i><%=bookmark.movie.overview%></i></h5>
-          <p><%= link_to 'X', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "delete #{bookmark.movie.title} from #{@list.name}?" }, class: 'card-remove-link'%></p>
-          <h4><%=bookmark.comment%></h4>
+        <p><i><%=bookmark.movie.overview%><i></p>
+            <p><%= link_to 'X', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "delete #{bookmark.movie.title} from #{@list.name}?" }, class: 'card-remove-link'%></p>
+            <h4><%=bookmark.comment%></h4>
+          </div>
         </div>
-      </div>
-    <%end%>
-  </div>
-  <%= link_to 'Lists', lists_path, class: 'btn btn-light mt-2'%>
-</div>
-<%# if movie.photo.attached? %>
-<%# movie.photo.attached ? cl_image_path(movie.photo.key) : movie.poster_url %>
+      <%end%>
+    </div>
+    <div class="bottom-footer">
+      <%= link_to 'Go To Lists', lists_path, class: 'btn btn-outline-dark btn-lg mt-5'%>
+    </div>
+    <%# if movie.photo.attached? %>
+    <%# movie.photo.attached ? cl_image_path(movie.photo.key) : movie.poster_url %>
