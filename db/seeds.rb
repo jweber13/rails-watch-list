@@ -24,7 +24,7 @@ puts "Creating Movies"
     title: Faker::Movie.title,
     overview: Faker::Movie.quote,
     rating: rand(1..6),
-    poster_url: "http://source.unsplash.com/featured/?cinema>&#{rand(100)}"
+    poster_url: "http://source.unsplash.com/featured/?cinema>&#{i}"
   )
 end
 

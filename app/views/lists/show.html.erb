@@ -22,3 +22,5 @@
   </div>
   <%= link_to 'Lists', lists_path, class: 'btn btn-light mt-2'%>
 </div>
+<%# if movie.photo.attached? %>
+<%# movie.photo.attached ? cl_image_path(movie.photo.key) : movie.poster_url %>
